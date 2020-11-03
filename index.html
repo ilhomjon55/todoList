@@ -6,21 +6,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="css/styles.css">
-  <title>Document</title>
+  <title>Todo List</title>
 </head>
 
 <body>
   <div class="container">
-    <h1 class="text-center my-4">Products list</h1>
+    <h1 class="text-center my-4">Todo List</h1>
   </div>
-  <form class="shopping-list__form row justify-content-center " action="https://echo.htmlacademy.ru/" method="POST">
+  <form class="actions-list__form row justify-content-center " action="https://echo.htmlacademy.ru/" method="POST">
     <div class="row form-group col-7 d-flex justify-content-between flex-column flex-sm-row px-0">
-      <input class="product-input form-control col-12 col-sm-7 mb-2 mb-sm-0 mr-sm-3" type="text" name="product_item"
-        placeholder="Enter product name">
+      <input class="actions-input form-control col-12 col-sm-7 mb-2 mb-sm-0 mr-sm-3" type="text" name="actions_item"
+        placeholder="Enter activity">
       <button class="btn btn-info col-12 col-sm-4 " type="submit">Add item</button>
     </div>
-    <ol class="products__list list-group col-7 mb-3"></ol>
-    <button class="reset-btn btn btn-success col-7" type="reset">Reset list</button>
+    <ol class="actions__list list-group col-7 mb-3"></ol>
+
+  </form>
+  <form class="actions-check-list__form row justify-content-center " action="https://echo.htmlacademy.ru/"
+    method="POST">
+    <div class="row form-group col-7 d-flex justify-content-between flex-column flex-sm-row px-0">
+      <input class="action-check-input form-control col-12 col-sm-7 mb-2 mb-sm-0 mr-sm-3" type="text"
+        name="action-check_item" placeholder="Enter activity">
+      <button class="btn btn-info col-12 col-sm-4 " type="submit">Check item</button>
+    </div>
+    <ol class="actions-check__list list-group col-7 mb-3"></ol>
+
   </form>
 
 

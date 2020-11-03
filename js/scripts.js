@@ -1,36 +1,41 @@
-var elShoppingListForm = document.querySelector('.shopping-list__form');
-var elNewProductInput = elShoppingListForm.querySelector('.product-input');
-var elProductsList = elShoppingListForm.querySelector('.products__list');
-var elProductsResetBtn = elShoppingListForm.querySelector('.reset-btn');
+// EVENT OF ADDING AN ACTION
 
-var products = [];
+var elActionsListForm = document.querySelector('.actions-list__form');
+var elNewActionInput = elActionsListForm.querySelector('.actions-input');
+var elActionsList = elActionsListForm.querySelector('.actions__list');
 
-elShoppingListForm.addEventListener('submit', function (evt) {
+
+var actions = [];
+
+elActionsListForm.addEventListener('submit', function (evt) {
   evt.preventDefault();
 
 
   // Preventing empty list-item
-  if (!elNewProductInput.value.trim()) {
+  if (!elNewActionInput.value.trim()) {
     alert(`Matn kiriting do'st!`);
-    elNewProductInput.value = '';
+    elNewActionInput.value = '';
     return;
   };
 
-  // Adding to productInput to products array
-  products.push(elNewProductInput.value.trim());
-  elNewProductInput.value = '';
-  elNewProductInput.focus();
-  console.log(products);
+  // Adding to actionInput to actions array
+  actions.push(elNewActionInput.value.trim());
+  elNewActionInput.value = '';
+  elNewActionInput.focus();
+  console.log(actions);
 
-  // Clearing ProductsList HTML
-  elProductsList.innerHTML = '';
+  // Clearing ActionsList HTML
+  elActionsList.innerHTML = '';
 
-  // Creating list-items to products
-  for (var product of products) {
-    var elProductsItem = document.createElement('li');
-    elProductsItem.classList.add('list-group-item', 'list-group-item-action');
-    elProductsItem.textContent = product;
-    elProductsList.appendChild(elProductsItem);
+  // Creating list-items to actions
+  for (var action of actions) {
+    var elActionsItem = document.createElement('li');
+    elActionsItem.classList.add('list-group-item', 'list-group-item-action');
+    elActionsItem.textContent = action;
+    elActionsList.appendChild(elActionsItem);
   };
 
 })
+
+
+// EVENT OF CHECKING ACTIONS
