@@ -2,42 +2,95 @@
 EVENT OF ADDING AN ACTION
 ================================ */
 
+
+
 var elActionsListForm = document.querySelector('.actions-list__form');
 var elNewActionInput = elActionsListForm.querySelector('.actions-input');
 var elActionsList = elActionsListForm.querySelector('.actions__list');
+var elActionUrgentInput = elActionsListForm.querySelector('.urgent-checkbox');
 
 
 var actions = [];
 
+/* // My first way =======================\
+
 elActionsListForm.addEventListener('submit', function (evt) {
   evt.preventDefault();
 
+  var newActionInput = elNewActionInput.value.trim();
 
   // Preventing empty list-item
-  if (!elNewActionInput.value.trim()) {
+  if (!newActionInput) {
     alert(`Matn kiriting do'st!`);
     elNewActionInput.value = '';
     return;
   };
 
-  // Adding to actionInput to actions array
-  actions.push(elNewActionInput.value.trim());
+  // Checking checkbox and adding to array
+  if (elActionUrgentInput.checked) {
+    actions.unshift(newActionInput);
+  } else {
+    actions.push(newActionInput);
+  }
+
   elNewActionInput.value = '';
   elNewActionInput.focus();
-  console.log(actions);
+
 
   // Clearing ActionsList HTML
   elActionsList.innerHTML = '';
 
-  // Creating list-items to actions
+  // Itearating existing all array elements to ol in one time
   for (var action of actions) {
     var elActionsItem = document.createElement('li');
     elActionsItem.classList.add('list-group-item', 'list-group-item-action');
     elActionsItem.textContent = action;
-    elActionsList.appendChild(elActionsItem);
+    elActionsList.append(elActionsItem);
   };
 
-})
+  console.log(actions);
+
+}); */
+
+
+// MrFarrukh`s second way =========================
+
+elActionsListForm.addEventListener('submit', function (evt) {
+  evt.preventDefault();
+
+  var newActionInput = elNewActionInput.value.trim();
+
+  // Preventing empty list-item
+  if (!newActionInput) {
+    alert(`Matn kiriting do'st!`);
+    elNewActionInput.value = '';
+    return;
+  };
+
+
+  // Creating list-item to action
+  var elActionsItem = document.createElement('li');
+  elActionsItem.classList.add('list-group-item', );
+  elActionsItem.textContent = newActionInput;
+
+
+  // Checking the checkbox and adding to array
+  if (elActionUrgentInput.checked) {
+    actions.unshift(newActionInput);
+    elActionsItem.classList.add('alert-urgent');
+    elActionsList.prepend(elActionsItem);
+  } else {
+    actions.push(newActionInput);
+    elActionsList.append(elActionsItem);
+  }
+
+  elNewActionInput.value = '';
+  elNewActionInput.focus();
+  console.log(actions);
+
+});
+
+
 
 
 
@@ -53,6 +106,10 @@ elActionsForm.addEventListener('submit', function (evt) {
   evt.preventDefault();
   var actionsInput = elActionsInput.value.trim();
   var isActionsInputAdded = actions.includes(actionsInput);
+
+  if (!actionsInput) {
+    alert(`Please, enter text!`);
+  }
 
   if (isActionsInputAdded) {
     elActionsResult.classList.remove('d-none');

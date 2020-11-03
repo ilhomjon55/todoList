@@ -18,18 +18,22 @@
   <form class="actions-list__form row justify-content-center " action="https://echo.htmlacademy.ru/" method="POST"
     autocomplete="off">
     <div class="row form-group col-7 d-flex justify-content-between flex-column flex-sm-row px-0">
-      <input class="actions-input form-control col-12 col-sm-7 mb-2 mb-sm-0 mr-sm-3" type="text" name="actions_item"
+      <input class="actions-input form-control col-12 col-sm-8 mb-3" type="text" name="actions_item"
         placeholder="Enter activity">
-      <button class="btn btn-info col-12 col-sm-4 " type="submit">Add item</button>
+      <div class="custom-control custom-switch col-3 mb-2 mb-sm-0">
+        <input class="urgent-checkbox custom-control-input" type="checkbox" id="customSwitch1">
+        <label class="custom-control-label" for="customSwitch1">Urgent</label>
+      </div>
+      <button class="btn btn-info col-12 text-nowrap" type="submit">Add item</button>
     </div>
-    <ol class="actions__list list-group col-7 mb-3"></ol>
+    <ol class="actions__list list-group col-7 mb-3 pr-0"></ol>
   </form>
   <!-- Checking actions list form -->
   <form class="actions-check-list__form row justify-content-center " action="https://echo.htmlacademy.ru/" method="POST"
     autocomplete="off">
     <div class="row form-group col-7 d-flex justify-content-between flex-column flex-sm-row px-0">
       <input class="action-check-input form-control col-12 col-sm-7 mb-2 mb-sm-0 mr-sm-3" type="text"
-        name="action-check_item" placeholder="Enter activity">
+        name="action-check_item" placeholder="Check activity">
       <button class="btn btn-info col-12 col-sm-4 " type="submit">Check item</button>
     </div>
     <div class="action-check__result d-none alert alert-info col-7"></div>
