@@ -1,4 +1,6 @@
-// EVENT OF ADDING AN ACTION
+/* =================================
+EVENT OF ADDING AN ACTION
+================================ */
 
 var elActionsListForm = document.querySelector('.actions-list__form');
 var elNewActionInput = elActionsListForm.querySelector('.actions-input');
@@ -38,4 +40,27 @@ elActionsListForm.addEventListener('submit', function (evt) {
 })
 
 
-// EVENT OF CHECKING ACTIONS
+
+/* ==============================
+EVENT OF CHECKING ACTIONS
+============================== */
+
+var elActionsForm = document.querySelector('.actions-check-list__form');
+var elActionsInput = elActionsForm.querySelector('.action-check-input');
+var elActionsResult = elActionsForm.querySelector('.action-check__result');
+
+elActionsForm.addEventListener('submit', function (evt) {
+  evt.preventDefault();
+  var actionsInput = elActionsInput.value.trim();
+  var isActionsInputAdded = actions.includes(actionsInput);
+
+  if (isActionsInputAdded) {
+    elActionsResult.classList.remove('d-none');
+    elActionsResult.textContent = `Yes, you added ${actionsInput}`;
+  } else {
+    elNewActionInput.value = actionsInput;
+    elActionsInput.value = '';
+    elNewActionInput.focus();
+  }
+
+});
