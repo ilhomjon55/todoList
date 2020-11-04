@@ -46,15 +46,3 @@
    border-color: #f5c6cb;
    color: #721c24;
  }
-
- /* =================================
-EVENT OF ADDING AN ACTION
-================================ */
-
- var elActionsListForm=document.querySelector('.actions-list__form');
- var elNewActionInput=elActionsListForm.querySelector('.actions-input');
- var elActionsList=elActionsListForm.querySelector('.actions__list');
- var elActionUrgentInput=elActionsListForm.querySelector('.urgent-checkbox');
-
-
- var actions=[];

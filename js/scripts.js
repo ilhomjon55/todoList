@@ -21,7 +21,7 @@ elActionsListForm.addEventListener('submit', function (evt) {
 
   // Preventing empty list-item
   if (!newActionInput) {
-    alert(`Matn kiriting do'st!`);
+    alert(`Please, enter text!`);
     elNewActionInput.value = '';
     return;
   };
@@ -62,7 +62,7 @@ elActionsListForm.addEventListener('submit', function (evt) {
 
   // Preventing empty list-item
   if (!newActionInput) {
-    alert(`Matn kiriting do'st!`);
+    alert(`Please, enter text!`);
     elNewActionInput.value = '';
     return;
   };
@@ -115,6 +115,7 @@ elActionsForm.addEventListener('submit', function (evt) {
     elActionsResult.classList.remove('d-none');
     elActionsResult.textContent = `Yes, you added ${actionsInput}`;
   } else {
+    elActionsResult.classList.add('d-none');
     elNewActionInput.value = actionsInput;
     elActionsInput.value = '';
     elNewActionInput.focus();
